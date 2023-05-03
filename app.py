@@ -184,7 +184,7 @@ def app():
         columns = ['polarity', 'subjectivity']
         df1 = pd.DataFrame(sentiment_series, columns=columns, index=train.index)
         result = pd.concat([train, df1], axis=1)
-        result.drop(['sentiment'],axis=0, inplace=True)
+        result.drop(['sentiment'],axis=1, inplace=True)
 
         result.loc[result['polarity']>=0.3, 'Sentiment'] = "Positive"
         result.loc[result['polarity']<0.3, 'Sentiment'] = "Negative"
