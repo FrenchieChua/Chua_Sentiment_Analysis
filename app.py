@@ -184,7 +184,7 @@ def app():
         columns = ['polarity', 'subjectivity']
         df1 = pd.DataFrame(sentiment_series, columns=columns, index=train.index)
         result = pd.concat([train, df1], axis=1)
-        result.drop(['sentiment'],axis=1, inplace=True)
+        result.drop(['sentiment'],axis=0, inplace=True)
 
         result.loc[result['polarity']>=0.3, 'Sentiment'] = "Positive"
         result.loc[result['polarity']<0.3, 'Sentiment'] = "Negative"
@@ -195,7 +195,7 @@ def app():
 
         st.write('We view the dataset after the sentiment labels are updated.')
         result = result.sort_values(by=['Sentiment'], ascending=False)
-        st.write(result.head(500))
+        st.write(result.head(20))
 
         counts = result['Sentiment'].value_counts()
         st.write(counts)
