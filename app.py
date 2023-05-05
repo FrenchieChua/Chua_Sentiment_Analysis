@@ -202,10 +202,7 @@ def app():
 
         #reads the sample count from the previous line
         labels = ['Negative','Positive']
-        if len(counts) == 1:
-            sizes = [counts[0], 0]
-        else:
-            sizes = [counts[0], counts[1]]
+        sizes = [counts[0], counts[1]]
         custom_colours = ['#ff7675', '#74b9ff']
 
         fig = plt.figure(figsize=(8, 3), dpi=100)
