@@ -210,8 +210,7 @@ def app():
         plt.pie(sizes, labels = labels, textprops={'fontsize': 10}, startangle=140, \
                 autopct='%1.0f%%', colors=custom_colours, explode=[0, 0.05])
         plt.subplot(1, 2, 2)
-        sns.barplot(x = result['Sentiment'].unique(), y = result['Sentiment'].value_counts(), \
-                palette= 'viridis')
+        sns.barplot(x = ['Negative', 'Positive'], y = counts, palette= 'viridis')
         st.pyplot(fig)
 
         # Save the dataframe to a CSV file
